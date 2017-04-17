@@ -342,15 +342,51 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
     //Boton Guardar
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        //Validacion de formulario 
+        //Validacion de formulario  que se llenen los campos 
+        
         if(txtIdUsuario.getText().equals("")){
-           JOptionPane.showMessageDialog(rootPane, "Digita un id");
+           JOptionPane.showMessageDialog(rootPane, "Ingresa un id");
            txtIdUsuario.requestFocusInWindow();
            return;
         }
         if (cmvPerfil.getSelectedIndex()==0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecsionar un ");
+            JOptionPane.showMessageDialog(rootPane, "Ingresa un Perfil de usuarío");
             cmvPerfil.requestFocusInWindow();
+            return;
+        }
+        if (txtNombre.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu nombre(a)");
+            txtNombre.requestFocusInWindow();
+            return;
+        }
+        if (txtApellido.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu apellido(a)");
+            txtApellido.requestFocusInWindow();
+            return;
+        }
+        //Creacion de variables auxiliares para validar contraseña sean iguales 
+        String clave=new String(txtClave.getPassword());
+        String confirmacion = new String(txtConfirmar.getPassword());
+        
+        if (clave.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu una contraseña");
+            txtClave.requestFocusInWindow();
+            return;
+        }
+        if (confirmacion.equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu una contraseña");
+            txtConfirmar.requestFocusInWindow();
+            return;
+        }
+        if (clave!=confirmacion) {
+            JOptionPane.showMessageDialog(rootPane, "Contraseña y confirmacion  son iguales ");
+            txtConfirmar.requestFocusInWindow();
+            return;
+        }
+
+        if (txtApellido.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingresa tu apellido(a)");
+            txtApellido.requestFocusInWindow();
             return;
         }
     //Codigo para avilitar los campos de texto para crear un usuario
